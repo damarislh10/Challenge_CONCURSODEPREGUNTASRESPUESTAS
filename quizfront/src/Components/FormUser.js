@@ -1,6 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { urluser } from "../Helpers/urls";
 import { DivForm, FormStyle } from "../Styles/StyleQuestion";
 
 export const FormUser = () => {
@@ -17,6 +19,16 @@ export const FormUser = () => {
       ...usuario,
       [target.name]: target.value,
     });
+  };
+
+  const postData = () => {
+    axios
+      .post(urluser, usuario)
+      .then((response) => {
+        console.log(response);
+        navigate("/questions");
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleSubmit = (e) => {
@@ -40,8 +52,7 @@ export const FormUser = () => {
           value={nombre}
           onChange={handleChanged}
         />
-
-        <Button onClick={() => navigate("/questions")}>Ok</Button>
+        <Button onClick={() => postData()}>Ok</Button>
       </FormStyle>
     </DivForm>
   );

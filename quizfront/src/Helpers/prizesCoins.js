@@ -6,7 +6,7 @@ export const prizesCoins = (numQuest) => {
   } else {
     saveMoney.push(40);
   }
-  let moneyWon = groupQuestionsMoney(saveMoney);
+  let moneyWon = groupQuestionsMoney();
   return moneyWon;
 };
 
@@ -17,16 +17,19 @@ export const totalMoney = () => {
     sum += saveMoney[i];
   }
 
-  console.log("total monedas ganadas " + sum);
+  console.log("Total monedas ganadas " + sum);
   return sum;
 };
 
-export const groupQuestionsMoney = (prize) => {
+export const groupQuestionsMoney = () => {
   let moneyWon = 0;
   saveMoney.forEach(function (money, i) {
     moneyWon = saveMoney[saveMoney.length - 1];
     console.log("soy ultimo", money);
   });
-
   return moneyWon;
 };
+
+export const saveDataHistory = (nameUser) => {
+    console.log(saveMoney);
+}
