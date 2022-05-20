@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { groupQuestionsMoney, prizesCoins } from "../Helpers/prizesCoins";
@@ -13,6 +13,7 @@ import {
   RadioStyled,
   Titulo,
 } from "../Styles/StyleQuestion";
+import HistoryPlay from "./HistoryPlay";
 
 let lengthQuestions = 0;
 export const Questions = () => {
@@ -89,6 +90,7 @@ export const Questions = () => {
       });
     } else {
       setAlertError(true);
+      navigate("/history");
     }
 
     if (questionState.numberQuestion === lengthQuestions) {
@@ -96,8 +98,33 @@ export const Questions = () => {
     }
   };
 
+  const exitgame = () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Esta seguro de salir del juego ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Si, salir!",
+        cancelButtonText: "No, cancelar!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(navigate("/history"));
+        }
+      });
+  };
   return (
     <DivForm>
+      <Button onClick={exitgame}>Salir del juego</Button>
       <FormStyle className="divform" onSubmit={handleSubmit}>
         <Form.Group
           className="mb-3 py-1 px-2"
