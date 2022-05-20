@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import { PeticionData } from "../Helpers/PeticionData";
-import {
-  urlfifthLevel,
-  urlfirstLevel,
-  urlfourthLevel,
-  urlsecondLevel,
-  urlthirdLevel,
-} from "../Helpers/urls";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { groupQuestionsMoney, prizesCoins } from "../Helpers/prizesCoins";
+import { getRamdomly } from "../Helpers/ramdomlyQuestion";
+
 import {
   ButtonStyled,
   DivForm,
@@ -17,7 +14,11 @@ import {
   Titulo,
 } from "../Styles/StyleQuestion";
 
+let lengthQuestions = 0;
 export const Questions = () => {
+  const [alertSuccess, setAlertSuccess] = useState(false);
+  const [alertError, setAlertError] = useState(false);
+
   const [questionState, setQuestion] = useState({
     numberQuestion: 0,
     question: {
@@ -32,54 +33,14 @@ export const Questions = () => {
     answerIncorrect: 0,
     answerSelect: "",
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const getData = async () => {
-      let groupLevel = [];
+    const getQuestions = async () => {
+      let groupQuestions = await getRamdomly();
+      lengthQuestions = groupQuestions.length;
 
-      const firstLevel = await PeticionData(urlfirstLevel);
-
-      const randomly1 =
-        firstLevel[Math.floor(Math.random() * firstLevel.length)];
-      const seleccion = firstLevel[randomly1];
-      firstLevel.splice(seleccion, 1);
-      groupLevel.push(randomly1);
-
-      const secondLevel = await PeticionData(urlsecondLevel);
-      const randomly2 =
-        secondLevel[Math.floor(Math.random() * secondLevel.length)];
-      const seleccion2 = secondLevel[randomly2];
-      secondLevel.splice(seleccion2, 1);
-      groupLevel.push(randomly2);
-
-      console.log(randomly2);
-
-      const thirdLevel = await PeticionData(urlthirdLevel);
-      const randomly3 =
-        thirdLevel[Math.floor(Math.random() * thirdLevel.length)];
-      const seleccion3 = thirdLevel[randomly3];
-      thirdLevel.splice(seleccion3, 1);
-      groupLevel.push(randomly3);
-
-      const fourthLevel = await PeticionData(urlfourthLevel);
-      const randomly4 =
-        fourthLevel[Math.floor(Math.random() * fourthLevel.length)];
-      const seleccion4 = fourthLevel[randomly4];
-      fourthLevel.splice(seleccion4, 1);
-      groupLevel.push(randomly4);
-
-      const fifthLevel = await PeticionData(urlfifthLevel);
-      const randomly5 =
-        fifthLevel[Math.floor(Math.random() * fifthLevel.length)];
-      const seleccion5 = fifthLevel[randomly5];
-      fifthLevel.splice(seleccion5, 1);
-      groupLevel.push(randomly5);
-
-      groupLevel = [randomly1, randomly2, randomly3, randomly4, randomly5];
-      console.log(groupLevel);
-
-      const currentQuizData = groupLevel[questionState.numberQuestion];
-      console.log(currentQuizData);
+      const currentQuizData = groupQuestions[questionState.numberQuestion];
       setQuestion({
         ...questionState,
         question: {
@@ -93,7 +54,7 @@ export const Questions = () => {
       });
     };
 
-    getData();
+    getQuestions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionState.numberQuestion]);
 
@@ -104,9 +65,40 @@ export const Questions = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+
+    if (questionState.answerSelect === questionState.question.correct) {
+      const prize = prizesCoins(questionState.numberQuestion);
+
+      setAlertSuccess(true);
+      setAlertError("");
+
+      Swal.fire({
+        title: `¡Ganaste ${prize} monedas!`,
+        background: "#ACFFCF",
+        showConfirmButton: false,
+        timer: 1500,
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+    } else {
+      setAlertError(true);
+    }
+
+    if (questionState.numberQuestion === lengthQuestions) {
+      navigate("/history");
+    }
+  };
+
   return (
     <DivForm>
-      <FormStyle className="divform">
+      <FormStyle className="divform" onSubmit={handleSubmit}>
         <Form.Group
           className="mb-3 py-1 px-2"
           controlId="control_radio"
@@ -120,7 +112,8 @@ export const Questions = () => {
             />
             <Titulo>{questionState.question.question}</Titulo>
           </div>
-          <DivRadio>
+
+          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
             <RadioStyled
               type="radio"
               label={questionState.question.a}
@@ -130,7 +123,7 @@ export const Questions = () => {
               onChange={onChange}
             />
           </DivRadio>
-          <DivRadio>
+          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
             <RadioStyled
               type="radio"
               label={questionState.question.b}
@@ -140,7 +133,7 @@ export const Questions = () => {
               onChange={onChange}
             />
           </DivRadio>
-          <DivRadio>
+          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
             <RadioStyled
               type="radio"
               label={questionState.question.c}
@@ -150,7 +143,7 @@ export const Questions = () => {
               onChange={onChange}
             />
           </DivRadio>
-          <DivRadio>
+          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
             <RadioStyled
               type="radio"
               label={questionState.question.d}
