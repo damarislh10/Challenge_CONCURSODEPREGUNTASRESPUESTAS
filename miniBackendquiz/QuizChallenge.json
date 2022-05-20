@@ -1,0 +1,213 @@
+{
+
+    "primerNivel": [
+        {
+            "question": "En numeros romanos la letra V es",
+            "a":"1",
+            "b":"5",
+            "c":"4",
+            "d":"2",
+            "correcta":"5"
+        },
+        {
+            "question": "ABREVIACIÓN DE PAÍSES. ¿Las letras SUR son utilizadas por",
+            "a":"Suriname",
+            "b":"Slovenia",
+            "c":"Senegal",
+            "d":"Sudan",
+            "correcta":"Suriname"
+        },
+        {
+            "question": "Cuál es el futbolista con más balones de oro",
+            "a":"Cristiano Ronaldo",
+            "b":"Leonel Messi",
+            "c":"Johan Cruyff",
+            "d":"Luka Modric",
+            "correcta":"Leonel Messi"
+        },
+        {
+            "question": "Cuántas notas musicales existen",
+            "a":"Ocho",
+            "b":"Cuatro",
+            "c":"Dos",
+            "d":"Doce",
+            "correcta":"Doce"
+        },
+        {
+            "question": "¿Cuál es el mineral más duro del planeta?",
+            "a":"Perla",
+            "b":"Carbon",
+            "c":"Diamante",
+            "d":"Amatista",
+            "correcta":"Diamante"
+        }
+    ],
+    "segundoNivel":[
+        {
+            "question": "¿Cuál es el país más poblado del mundo?",
+            "a":"China",
+            "b":"Rusia",
+            "c":"India",
+            "d":"Estados Unidos",
+            "correcta":"China"
+        },
+        {
+            "question": "¿Qué gas liberan las plantas al hacer la fotosíntesis?",
+            "a":"Helio",
+            "b":"Carbon",
+            "c":"Oxígeno",
+            "d":"Hidrogeno",
+            "correcta":"Oxígeno"
+        },
+        {
+            "question": "¿Cuál es la montaña más alta del mundo?",
+            "a":"Kanchenjunga",
+            "b":"El Everest",
+            "c":"Makalu",
+            "d":"Manaslu",
+            "correcta":"El Everest"
+        },
+        {
+            "question": "¿Cuál es la capital de México?",
+            "a":"Ciudad de México",
+            "b":"Bogotá",
+            "c":"Monterrey",
+            "d":"Merida",
+            "correcta":"Ciudad de México"
+        },
+        {
+            "question": "¿Quién es el fundador de Facebook?",
+            "a":"Bill Gates",
+            "b":"Jeff Bezos",
+            "c":"Larry Ellison",
+            "d":"Mark Zuckerberg.",
+            "correcta":"Mark Zuckerberg."
+        }
+    ],
+    "tercerNivel":[
+        {
+            "question": "¿Cuál es el libro sagrado del Islam?",
+            "a":"La Torá",
+            "b":"Los Salmos",
+            "c":"Coral",
+            "d":"El Evangelio",
+            "correcta":"Coral"
+        },
+        {
+            "question": "¿Cuál es el enemigo más famoso de Batman?",
+            "a":"Harley Quinn",
+            "b":"El Joker",
+            "c":"El Pingüino",
+            "d":"Dos Caras",
+            "correcta":"El Joker"
+        },
+        {
+            "question": "¿Cuántas películas de Harry Potter se han hecho?",
+            "a":"Seis",
+            "b":"Cuatro",
+            "c":"Ocho",
+            "d":"Doce",
+            "correcta":"Ocho"
+        },
+        {
+            "question": "¿Qué célebre compositor clásico era sordo?",
+            "a":"Fréderic Chopin",
+            "b":"Ludwig van Beethoven",
+            "c":"Johann Sebastian",
+            "d":"Richard Wagner",
+            "correcta":"Ludwig van Beethoven"
+        },
+        {
+            "question": "¿Cuál es el libro más vendido de la historia?",
+            "a":"La Biblia",
+            "b":"El diario de Ana Frank",
+            "c":"Piense y Hágase Rico",
+            "d":"Crepúsculo",
+            "correcta":"La Biblia"
+        }
+    ],
+    "cuartoNivel":[
+        {
+            "question": "¿Cuándo se extinguieron los dinosaurios?",
+            "a":"Hace 65 millones de años",
+            "b":"Hace 70 millones de años",
+            "c":"Hace 80 millones de años",
+            "d":"Hace 66 millones de años",
+            "correcta":"Hace 66 millones de años"
+        },
+        {
+            "question": "¿Qué pigmento permite a las plantas hacer la fotosíntesis?",
+            "a":"carotenos",
+            "b":"xantofilas",
+            "c":"antocianinas",
+            "d":"La clorofila",
+            "correcta":"La clorofila"
+        },
+        {
+            "question": "¿Cuál es la estrella más cercana al Sol?",
+            "a":"Estrella de Barnard",
+            "b":"Alfa Centauri",
+            "c":"Luhman 16",
+            "d":"Sirio",
+            "correcta":"Alfa Centauri"
+        },
+        {
+            "question": "¿Cuál es la ciudad que nunca duerme?",
+            "a":"Los angeles",
+            "b":"California",
+            "c":"Nueva York",
+            "d":"Las vegas",
+            "correcta":"Nueva York"
+        },
+        {
+            "question": "¿Dónde se celebraron las Olimpiadas de 1992?",
+            "a":"Barcelona",
+            "b":"Brasil",
+            "c":"España",
+            "d":"Buenos aires",
+            "correcta":"Barcelona"
+        }
+    ],
+    "quintoNivel":[
+        {
+            "question": "¿Qué actor español ganó un Óscar por 'No es país para viejos?",
+            "a":"Penélope Cruz",
+            "b":"George Arliss",
+            "c":"Javier Bardem",
+            "d":"Spencer Tracy",
+            "correcta":"Javier Bardem"
+        },
+        {
+            "question": "¿Cuál es el himno de la Unión Europea?",
+            "a":"'Oda a la alegría'",
+            "b":"'Land of my fathers'",
+            "c":"'el mejor del grupo'",
+            "d":"'Nkosi Sikelil'iAfrika'",
+            "correcta":"'Oda a la alegría'"
+        },
+        {
+            "question": "¿Cuántos corazones tiene un pulpo?",
+            "a":"Tres corazones",
+            "b":"Un corazón",
+            "c":"Cuatro corazones",
+            "d":"Cinco corazones",
+            "correcta":"Tres corazones"
+        },
+        {
+            "question": "¿Cuál es el videojuego más vendido de la historia?",
+            "a":"GTA V",
+            "b":"Minecraft",
+            "c":"Super Mario Bros",
+            "d":"Tetris",
+            "correcta":"Minecraft"
+        },
+        {
+            "question": "¿A qué país pertenece Groenlandia?",
+            "a":"Belgica",
+            "b":"Francia",
+            "c":"Noruega",
+            "d":"Dinamarca",
+            "correcta":"Dinamarca"
+        }
+    ]
+}
