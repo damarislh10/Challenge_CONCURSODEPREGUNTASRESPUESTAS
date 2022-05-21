@@ -4,9 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { requestData } from "../../Helpers/Data/requestData";
 import { urlHistoryPlay } from "../../Helpers/Data/urls";
 import { sendHistoryAward } from "../../Helpers/History/getLocalHistory";
-import { DivContHistory, Field, TableSty } from "../../Styles/StyleHistoryGame";
+import {
+  ButtonHome,
+  ButtonNewGame,
+  ContainBtnsHis,
+  DivContHistory,
+  Field,
+  TableSty,
+} from "../../Styles/StyleHistoryGame";
 import { DivBackground } from "../../Styles/StyleHome";
 import { DivForm, FormStyle, Titulo } from "../../Styles/StyleQuestion";
+import { BottonPlay } from "../../Styles/StyleUserName";
 
 const HistoryPlay = () => {
   const [history, setHistory] = useState({
@@ -38,10 +46,17 @@ const HistoryPlay = () => {
         <DivBackground>
           <DivContHistory>
             <Titulo>Historico juego</Titulo>
-            <Button onClick={() => navigate("/questions")}>
-              Volver a jugar
-            </Button>
-            <Button>De vuelta a casa</Button>
+            <ContainBtnsHis>
+              <ButtonNewGame
+                className="btn"
+                onClick={() => navigate("/questions")}
+              >
+                Volver a jugar
+              </ButtonNewGame>
+              <ButtonHome className="btn" onClick={() => navigate("/")}>
+                De vuelta a casa
+              </ButtonHome>
+            </ContainBtnsHis>
             <TableSty striped bordered hover>
               <thead>
                 <tr>
