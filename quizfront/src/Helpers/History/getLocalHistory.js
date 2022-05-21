@@ -1,37 +1,43 @@
-import { saveDataHistory } from "../Awards/prizesCoins";
+import axios from "axios";
+import { saveDataHistory, totalMoney } from "../Awards/prizesCoins";
 import { requestData } from "../Data/requestData";
-import { urluser } from "../Data/urls";
+import { urlHistoryPlay, urluser } from "../Data/urls";
 
 let perfilUser = JSON.parse(localStorage.getItem("userRegister"));
 perfilUser = perfilUser !== null ? perfilUser : [];
 
-let nombre = "";
-
 export const getDataUser = async () => {
+  let nombre = "";
   let nameUser = await requestData(urluser);
-  console.log(nameUser);
-  console.log(perfilUser);
 
-  let filtro = [
-    ...perfilUser,
-    ...nameUser.filter((p) => perfilUser.includes(p)),
-  ];
+  let filtro = [...nameUser, ...perfilUser.filter((p) => nameUser.includes(p))];
   console.log(filtro);
 
   filtro.forEach((items) => {
     nombre = items.nombre;
   });
-
   return nombre;
 };
 
-export const sendHistoryAward = () => {
-   const historyMoney = saveDataHistory();
+export const sendHistoryAward = async () => {
+  const historyMoney = saveDataHistory();
+  const totalAcomulado = totalMoney();
+  const nombre = await getDataUser();
+
   const HistoryPlay = {
     user: nombre,
-    historicoWon: "",
-    acumuladoTotal: 0,
+    historicoWon: historyMoney,
+    acumuladoTotal: totalAcomulado,
   };
 
-  return historyMoney;
+  HistorySendApi(HistoryPlay);
+};
+
+const HistorySendApi = (accumulhistory) => {
+  let bandera = true;
+  if (bandera) {
+    console.log(accumulhistory);
+    // axios.post(urlHistoryPlay, accumulhistory);
+    bandera = false;
+  }
 };

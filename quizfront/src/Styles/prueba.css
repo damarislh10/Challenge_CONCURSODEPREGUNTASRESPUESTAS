@@ -1,0 +1,7 @@
+div{
+    justify-content: center;
+    align-items: center;
+    text-transform: lowercase;
+    font-weight: bold;
+    color: rgb(23, 21, 41);
+}

@@ -26,11 +26,19 @@ export const groupQuestionsMoney = () => {
     moneyWon = saveMoney[saveMoney.length - 1];
     console.log("soy ultimo", money);
   });
-  console.log(saveMoney);
 
   return moneyWon;
 };
 
 export const saveDataHistory = () => {
-  return saveMoney;
+  return [saveMoney];
+};
+
+export const loseGame = () => {
+  let sinAcumulado = 0;
+  saveMoney.forEach(function (item) {
+    item = sinAcumulado;
+    console.log("perdiste", item);
+  });
+  return sinAcumulado;
 };

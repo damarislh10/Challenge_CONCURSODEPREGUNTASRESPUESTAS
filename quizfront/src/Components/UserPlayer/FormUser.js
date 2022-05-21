@@ -4,7 +4,9 @@ import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { urluser } from "../../Helpers/Data/urls";
 import { sendLocalStorage } from "../../Helpers/History/SendLocalHistory";
+import { BottonPlay, DivBackground } from "../../Styles/StyleHome";
 import { DivForm, FormStyle } from "../../Styles/StyleQuestion";
+import { ButtonForm, DivContForm } from "../../Styles/StyleUserName";
 
 export const FormUser = () => {
   const navigate = useNavigate();
@@ -40,21 +42,28 @@ export const FormUser = () => {
   return (
     <DivForm>
       <FormStyle className="divform" onSubmit={handleSubmit}>
-        <Form.Group
-          className="mb-3 py-1 px-2"
-          controlId=""
-          style={{ padding: "4rem" }}
-        ></Form.Group>
-        <Form.Label>Ingresa tu Nombre</Form.Label>
-        <input
-          type="text"
-          required
-          id="inputNombre"
-          name="nombre"
-          value={nombre}
-          onChange={handleChanged}
-        />
-        <Button onClick={() => postData()}>Ok</Button>
+        <DivBackground>
+          <DivContForm>
+            <Form.Group
+              className="mb-3 py-1 px-2"
+              controlId=""
+              style={{ padding: "6rem" }}
+            ></Form.Group>
+            <Form.Label>Ingresa tu Nombre</Form.Label>
+            <br />
+            <input
+              className="my-3"
+              type="text"
+              required
+              id="inputNombre"
+              name="nombre"
+              value={nombre}
+              onChange={handleChanged}
+            />
+            <br />
+            <ButtonForm className="btn" onClick={() => postData()}>Listo</ButtonForm>
+          </DivContForm>
+        </DivBackground>
       </FormStyle>
     </DivForm>
   );

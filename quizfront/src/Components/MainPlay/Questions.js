@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { groupQuestionsMoney, prizesCoins } from "../../Helpers/Awards/prizesCoins";
+import { loseGame, prizesCoins } from "../../Helpers/Awards/prizesCoins";
 import { getRamdomly } from "../../Helpers/QuestionProcess/ramdomlyQuestion";
 
 import {
@@ -13,7 +13,6 @@ import {
   RadioStyled,
   Titulo,
 } from "../../Styles/StyleQuestion";
-import HistoryPlay from "../UserPlayer/HistoryPlay";
 
 let lengthQuestions = 0;
 export const Questions = () => {
@@ -89,8 +88,9 @@ export const Questions = () => {
         },
       });
     } else {
+      console.log(loseGame());
       setAlertError(true);
-      navigate("/history");
+      // navigate("/history");
     }
 
     if (questionState.numberQuestion === lengthQuestions) {
