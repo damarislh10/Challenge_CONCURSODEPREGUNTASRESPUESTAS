@@ -12,7 +12,6 @@ export const prizesCoins = (numQuest) => {
 
 export const totalMoney = () => {
   let sum = 0;
-
   for (let i = 0; i < saveMoney.length; i++) {
     sum += saveMoney[i];
   }
@@ -27,9 +26,11 @@ export const groupQuestionsMoney = () => {
     moneyWon = saveMoney[saveMoney.length - 1];
     console.log("soy ultimo", money);
   });
+  console.log(saveMoney);
+
   return moneyWon;
 };
 
-export const saveDataHistory = (nameUser) => {
-    console.log(saveMoney);
-}
+export const saveDataHistory = () => {
+  return saveMoney;
+};

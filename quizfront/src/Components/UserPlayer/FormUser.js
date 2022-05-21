@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { urluser } from "../Helpers/urls";
-import { DivForm, FormStyle } from "../Styles/StyleQuestion";
+import { urluser } from "../../Helpers/Data/urls";
+import { sendLocalStorage } from "../../Helpers/History/SendLocalHistory";
+import { DivForm, FormStyle } from "../../Styles/StyleQuestion";
 
 export const FormUser = () => {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export const FormUser = () => {
         navigate("/questions");
       })
       .catch((error) => console.log(error));
+    sendLocalStorage(usuario);
   };
 
   const handleSubmit = (e) => {

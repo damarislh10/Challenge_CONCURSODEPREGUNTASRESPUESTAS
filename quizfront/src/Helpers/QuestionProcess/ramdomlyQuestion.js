@@ -1,11 +1,11 @@
-import { requestData } from "./requestData";
+import { requestData } from "../Data/requestData";
 import {
   urlfifthLevel,
   urlfirstLevel,
   urlfourthLevel,
   urlsecondLevel,
   urlthirdLevel,
-} from "../Helpers/urls";
+} from "../Data/urls";
 
 export const getRamdomly = async () => {
   let groupLevel = [];

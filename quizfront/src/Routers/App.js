@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { FormUser } from "../Components/FormUser";
-import HistoryPlay from "../Components/HistoryPlay";
-import { Questions } from "../Components/Questions";
-import StartPlay from "../Components/StartPlay";
+import HistoryPlay from "../Components/UserPlayer/HistoryPlay";
+import { Questions } from "../Components/MainPlay/Questions";
+import StartPlay from "../Components/Home/StartPlay";
+import { FormUser } from "../Components/UserPlayer/FormUser";
 
 function App() {
   return (

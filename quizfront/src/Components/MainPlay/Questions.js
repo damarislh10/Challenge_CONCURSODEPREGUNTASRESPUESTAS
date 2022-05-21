@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { groupQuestionsMoney, prizesCoins } from "../Helpers/prizesCoins";
-import { getRamdomly } from "../Helpers/ramdomlyQuestion";
+import { groupQuestionsMoney, prizesCoins } from "../../Helpers/Awards/prizesCoins";
+import { getRamdomly } from "../../Helpers/QuestionProcess/ramdomlyQuestion";
 
 import {
   ButtonStyled,
@@ -12,8 +12,8 @@ import {
   FormStyle,
   RadioStyled,
   Titulo,
-} from "../Styles/StyleQuestion";
-import HistoryPlay from "./HistoryPlay";
+} from "../../Styles/StyleQuestion";
+import HistoryPlay from "../UserPlayer/HistoryPlay";
 
 let lengthQuestions = 0;
 export const Questions = () => {
