@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { loseGame, prizesCoins } from "../../Helpers/Awards/prizesCoins";
 import { getRamdomly } from "../../Helpers/QuestionProcess/ramdomlyQuestion";
+import { DivBackground } from "../../Styles/StyleHome";
 
 import {
   ButtonStyled,
@@ -12,7 +13,12 @@ import {
   FormStyle,
   RadioStyled,
   Titulo,
+  ContainerQuestion,
+  ContbtnComprobar,
+  SpanOption,
+  BtnExitGame,
 } from "../../Styles/StyleQuestion";
+import { ButtonForm } from "../../Styles/StyleUserName";
 
 let lengthQuestions = 0;
 export const Questions = () => {
@@ -77,7 +83,8 @@ export const Questions = () => {
 
       Swal.fire({
         title: `¡Ganaste ${prize} monedas!`,
-        background: "#ACFFCF",
+        background: "rgb(23, 21, 41)",
+        color: "#ffff",
         showConfirmButton: false,
         timer: 1500,
         showClass: {
@@ -89,8 +96,30 @@ export const Questions = () => {
       });
     } else {
       console.log(loseGame());
+      Swal.fire({
+        title: `Juego Terminado`,
+        text: "Perdio acumulado",
+        background: "rgb(23, 21, 41)",
+        color: "#ffff",
+        showDenyButton: true,
+        confirmButtonText: "Volver a jugar",
+        denyButtonText: `Volver a casa`,
+        showConfirmButton: true,
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/questions");
+        } else if (result.isDenied) {
+          navigate("/");
+        }
+      });
+
       setAlertError(true);
-      // navigate("/history");
     }
 
     if (questionState.numberQuestion === lengthQuestions) {
@@ -109,8 +138,10 @@ export const Questions = () => {
 
     swalWithBootstrapButtons
       .fire({
-        title: "Esta seguro de salir del juego ?",
+        title: "¿Esta seguro de salir del juego ?",
         icon: "warning",
+        background: "rgb(23, 21, 41)",
+        color: "#ffff",
         showCancelButton: true,
         confirmButtonText: "Si, salir!",
         cancelButtonText: "No, cancelar!",
@@ -118,81 +149,87 @@ export const Questions = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(navigate("/history"));
+          swalWithBootstrapButtons.fire(navigate("/"));
         }
       });
   };
   return (
     <DivForm>
-      <Button onClick={exitgame}>Salir del juego</Button>
       <FormStyle className="divform" onSubmit={handleSubmit}>
-        <Form.Group
-          className="mb-3 py-1 px-2"
-          controlId="control_radio"
-          style={{ padding: "4rem" }}
-        >
-          <div className="d-flex">
-            <img
-              style={{ width: "70px" }}
-              src="https://res.cloudinary.com/df90q7vvj/image/upload/v1644686451/DailyBitsSprint2/Property_1_3_wde9zs.png"
-              alt="img-av"
-            />
-            <Titulo>{questionState.question.question}</Titulo>
-          </div>
+        <DivBackground>
+          <BtnExitGame className="btn" onClick={exitgame}>
+            Salir del juego
+          </BtnExitGame>
 
-          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
-            <RadioStyled
-              type="radio"
-              label={questionState.question.a}
-              value={questionState.question.a}
-              name={"Respuestas"}
-              id={"Respuesta1"}
-              onChange={onChange}
-            />
-          </DivRadio>
-          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
-            <RadioStyled
-              type="radio"
-              label={questionState.question.b}
-              value={questionState.question.b}
-              name={"Respuestas"}
-              id={"Respuesta2"}
-              onChange={onChange}
-            />
-          </DivRadio>
-          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
-            <RadioStyled
-              type="radio"
-              label={questionState.question.c}
-              value={questionState.question.c}
-              name={"Respuestas"}
-              id={"Respuesta3"}
-              onChange={onChange}
-            />
-          </DivRadio>
-          <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
-            <RadioStyled
-              type="radio"
-              label={questionState.question.d}
-              value={questionState.question.d}
-              name={"Respuestas"}
-              id={"Respuesta4"}
-              onChange={onChange}
-            />
-          </DivRadio>
-        </Form.Group>
-        <ButtonStyled
-          variant="primary"
-          type="submit"
-          onClick={() =>
-            setQuestion({
-              ...questionState,
-              numberQuestion: questionState.numberQuestion + 1,
-            })
-          }
-        >
-          Comprobar
-        </ButtonStyled>
+          <Form.Group
+            className="mb-3 py-1 px-2"
+            controlId="control_radio"
+            style={{ padding: "4rem" }}
+          >
+            <ContainerQuestion>
+              <Titulo>{questionState.question.question}</Titulo>
+            </ContainerQuestion>
+
+            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+              <SpanOption> A: </SpanOption>
+              <RadioStyled
+                type="radio"
+                label={questionState.question.a}
+                value={questionState.question.a}
+                name={"Respuestas"}
+                id={"Respuesta1"}
+                onChange={onChange}
+              />
+            </DivRadio>
+            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+              <SpanOption> B: </SpanOption>
+              <RadioStyled
+                type="radio"
+                label={questionState.question.b}
+                value={questionState.question.b}
+                name={"Respuestas"}
+                id={"Respuesta2"}
+                onChange={onChange}
+              />
+            </DivRadio>
+            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+              <SpanOption> C: </SpanOption>
+              <RadioStyled
+                type="radio"
+                label={questionState.question.c}
+                value={questionState.question.c}
+                name={"Respuestas"}
+                id={"Respuesta3"}
+                onChange={onChange}
+              />
+            </DivRadio>
+            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+              <SpanOption> D: </SpanOption>
+              <RadioStyled
+                type="radio"
+                label={questionState.question.d}
+                value={questionState.question.d}
+                name={"Respuestas"}
+                id={"Respuesta4"}
+                onChange={onChange}
+              />
+            </DivRadio>
+          </Form.Group>
+          <ContbtnComprobar>
+            <ButtonForm
+              className="btn"
+              type="submit"
+              onClick={() =>
+                setQuestion({
+                  ...questionState,
+                  numberQuestion: questionState.numberQuestion + 1,
+                })
+              }
+            >
+              Comprobar
+            </ButtonForm>
+          </ContbtnComprobar>
+        </DivBackground>
       </FormStyle>
     </DivForm>
   );

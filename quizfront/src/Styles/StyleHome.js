@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const DivBackground = styled.div`
   background: url(https://res.cloudinary.com/df90q7vvj/image/upload/v1653164303/sofkaTest/New_20folder_pocyiw.jpg)
     center center / cover;
-  height: 80vh;
+  height: 90vh;
+  color: #fff;
 `;
 
 export const ImageLight = styled.img`
