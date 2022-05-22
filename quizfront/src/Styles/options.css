@@ -1,0 +1,12 @@
+
+
+.correct:hover{
+    background-color: #1db900;
+    border-left: 4px solid #0f6300;
+}
+
+.incorrect:hover{
+    background-color: #df3a2e;
+    border-left: 4px solid #ff3b3b;
+}
+

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { requestData } from "../../Helpers/Data/requestData";
 import { urlHistoryPlay } from "../../Helpers/Data/urls";
-import { sendHistoryAward } from "../../Helpers/History/getLocalHistory";
 import {
   ButtonHome,
   ButtonNewGame,
@@ -24,11 +23,9 @@ const HistoryPlay = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    sendHistoryAward();
     getAllHistoryPlay();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sendHistoryAward]);
+  }, []);
 
   const getAllHistoryPlay = async () => {
     let dataPlay = await requestData(urlHistoryPlay);
@@ -64,13 +61,17 @@ const HistoryPlay = () => {
                 </tr>
               </thead>
               <tbody>
-                {historyPlay.map((p) => (
-                  <tr key={p.id}>
-                    <Field>{p.user}</Field>
-                    <Field>{`$ ${p.historicoWon}  `}</Field>
-                    <Field>$ {p.acumuladoTotal}</Field>
-                  </tr>
-                ))}
+                {historyPlay.length <= 10 ? (
+                  historyPlay.map((p) => (
+                    <tr key={p.id}>
+                      <Field>{p.user}</Field>
+                      <Field>{`$ ${p.historicoWon}`}</Field>
+                      <Field>$ {p.acumuladoTotal}</Field>
+                    </tr>
+                  ))
+                ) : (
+                  <td>0</td>
+                )}
               </tbody>
             </TableSty>
           </DivContHistory>

@@ -34,11 +34,3 @@ export const saveDataHistory = () => {
   return [saveMoney];
 };
 
-export const loseGame = () => {
-  let sinAcumulado = 0;
-  saveMoney.forEach(function (item) {
-    item = sinAcumulado;
-    console.log("perdiste", item);
-  });
-  return sinAcumulado;
-};

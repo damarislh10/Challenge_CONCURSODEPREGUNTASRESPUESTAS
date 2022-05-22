@@ -34,10 +34,6 @@ export const sendHistoryAward = async () => {
 };
 
 const HistorySendApi = (accumulhistory) => {
-  let bandera = true;
-  if (bandera) {
     console.log(accumulhistory);
-    // axios.post(urlHistoryPlay, accumulhistory);
-    bandera = false;
-  }
+    axios.post(urlHistoryPlay, accumulhistory);
 };

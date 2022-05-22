@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { urluser } from "../../Helpers/Data/urls";
 import { sendLocalStorage } from "../../Helpers/History/SendLocalHistory";
-import { BottonPlay, DivBackground } from "../../Styles/StyleHome";
+import { DivBackground } from "../../Styles/StyleHome";
 import { DivForm, FormStyle } from "../../Styles/StyleQuestion";
 import { ButtonForm, DivContForm } from "../../Styles/StyleUserName";
 
@@ -61,7 +61,9 @@ export const FormUser = () => {
               onChange={handleChanged}
             />
             <br />
-            <ButtonForm className="btn" onClick={() => postData()}>Listo</ButtonForm>
+            <ButtonForm className="btn" onClick={() => postData()}>
+              Listo
+            </ButtonForm>
           </DivContForm>
         </DivBackground>
       </FormStyle>

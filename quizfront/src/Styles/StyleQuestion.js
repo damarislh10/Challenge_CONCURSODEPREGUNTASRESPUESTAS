@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { ButtonForm } from "./StyleUserName";
 
 export const DivForm = styled.div`
@@ -62,9 +62,6 @@ export const DivRadio = styled.div`
   border-radius: 4px;
   margin: 1.5%;
   padding-left: 7%;
-  /* &:hover {
-    background: #bbb;
-  } */
 `;
 
 export const ContbtnComprobar = styled.div`

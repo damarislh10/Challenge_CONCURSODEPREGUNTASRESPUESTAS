@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { loseGame, prizesCoins } from "../../Helpers/Awards/prizesCoins";
+import { prizesCoins } from "../../Helpers/Awards/prizesCoins";
 import { getRamdomly } from "../../Helpers/QuestionProcess/ramdomlyQuestion";
 import { DivBackground } from "../../Styles/StyleHome";
-import "../../Styles/prueba.css";
+import "../../Styles/options.css";
 import {
   DivForm,
   DivRadio,
@@ -18,12 +18,10 @@ import {
   BtnExitGame,
 } from "../../Styles/StyleQuestion";
 import { ButtonForm } from "../../Styles/StyleUserName";
+import { sendHistoryAward } from "../../Helpers/History/getLocalHistory";
 
 let lengthQuestions = 0;
 export const Questions = () => {
-  const [alertSuccess, setAlertSuccess] = useState(false);
-  const [alertError, setAlertError] = useState(false);
-
   const [questionState, setQuestion] = useState({
     numberQuestion: 0,
     question: {
@@ -76,9 +74,6 @@ export const Questions = () => {
     if (questionState.answerSelect === questionState.question.correct) {
       const prize = prizesCoins(questionState.numberQuestion);
 
-      setAlertSuccess(true);
-      setAlertError("");
-
       Swal.fire({
         title: `¡Ganaste ${prize} monedas!`,
         background: "rgb(23, 21, 41)",
@@ -93,10 +88,8 @@ export const Questions = () => {
         },
       });
     } else {
-      console.log(loseGame());
       Swal.fire({
         title: `Juego Terminado`,
-        text: "Perdio acumulado",
         background: "rgb(23, 21, 41)",
         color: "#ffff",
         showDenyButton: true,
@@ -116,12 +109,11 @@ export const Questions = () => {
           navigate("/");
         }
       });
-
-      setAlertError(true);
     }
 
     if (questionState.numberQuestion === lengthQuestions) {
       navigate("/history");
+      sendHistoryAward();
     }
   };
 
