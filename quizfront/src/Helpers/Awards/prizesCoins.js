@@ -24,7 +24,6 @@ export const groupQuestionsMoney = () => {
   let moneyWon = 0;
   saveMoney.forEach(function (money, i) {
     moneyWon = saveMoney[saveMoney.length - 1];
-    console.log("soy ultimo", money);
   });
 
   return moneyWon;
@@ -33,4 +32,3 @@ export const groupQuestionsMoney = () => {
 export const saveDataHistory = () => {
   return [saveMoney];
 };
-

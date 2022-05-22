@@ -34,6 +34,5 @@ export const sendHistoryAward = async () => {
 };
 
 const HistorySendApi = (accumulhistory) => {
-    console.log(accumulhistory);
     axios.post(urlHistoryPlay, accumulhistory);
 };
