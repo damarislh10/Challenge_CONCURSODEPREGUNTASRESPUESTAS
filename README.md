@@ -1,5 +1,3 @@
-# Hi there 👋 <img src="https://res.cloudinary.com/df90q7vvj/image/upload/v1649207772/GestWork/GestworkAzul_lfe7yf.svg" style="width: 200px;" >
-
 ##  Concurso de preguntas y respuestas
 
 la intención es diseñar una solución que permita tener un banco de preguntas con diferentes opciones para una única respuesta, además cada pregunta debe estar en una categoría o un grupos de preguntas similares del mismo nivel,las rondas del juego son nivel que van aumentando en la medida que el jugador gana premios.
