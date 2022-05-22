@@ -4,7 +4,6 @@ import { requestData } from "../../Helpers/Data/requestData";
 import { urlHistoryPlay } from "../../Helpers/Data/urls";
 import {
   ButtonHome,
-  ButtonNewGame,
   ContainBtnsHis,
   DivContHistory,
   Field,
@@ -42,12 +41,6 @@ const HistoryPlay = () => {
           <DivContHistory>
             <Titulo>Historico juego</Titulo>
             <ContainBtnsHis>
-              <ButtonNewGame
-                className="btn"
-                onClick={() => navigate("/questions")}
-              >
-                Volver a jugar
-              </ButtonNewGame>
               <ButtonHome className="btn" onClick={() => navigate("/")}>
                 De vuelta a casa
               </ButtonHome>

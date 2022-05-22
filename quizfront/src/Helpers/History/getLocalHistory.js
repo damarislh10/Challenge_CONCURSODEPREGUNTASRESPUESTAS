@@ -11,7 +11,6 @@ export const getDataUser = async () => {
   let nameUser = await requestData(urluser);
 
   let filtro = [...nameUser, ...perfilUser.filter((p) => nameUser.includes(p))];
-  console.log(filtro);
 
   filtro.forEach((items) => {
     nombre = items.nombre;

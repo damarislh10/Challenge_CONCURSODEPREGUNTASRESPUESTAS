@@ -80,7 +80,19 @@ export const BtnExitGame = styled(ButtonForm)`
   padding: 1%;
 `;
 
-export const Correct = styled.div`
-  background-color: #1db900;
-  border-left: 4px solid #0f6300;
+export const ContainbtnTotal = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffff;
+  margin: auto;
+  background: url(https://res.cloudinary.com/df90q7vvj/image/upload/v1653164303/sofkaTest/New_20folder_pocyiw.jpg)
+    center center / cover;
+  width: 50%;
+`;
+export const LabelMoney = styled.label`
+  margin-right: 2%;
+`;
+export const ImageMoney = styled.img`
+  width: 30px;
 `;

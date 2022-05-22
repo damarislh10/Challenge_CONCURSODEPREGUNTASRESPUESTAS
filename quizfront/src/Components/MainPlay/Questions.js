@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { prizesCoins } from "../../Helpers/Awards/prizesCoins";
+import { prizesCoins, totalMoney } from "../../Helpers/Awards/prizesCoins";
 import { getRamdomly } from "../../Helpers/QuestionProcess/ramdomlyQuestion";
 import { DivBackground } from "../../Styles/StyleHome";
 import "../../Styles/options.css";
@@ -16,6 +16,9 @@ import {
   ContbtnComprobar,
   SpanOption,
   BtnExitGame,
+  ContainbtnTotal,
+  LabelMoney,
+  ImageMoney,
 } from "../../Styles/StyleQuestion";
 import { ButtonForm } from "../../Styles/StyleUserName";
 import { sendHistoryAward } from "../../Helpers/History/getLocalHistory";
@@ -104,7 +107,12 @@ export const Questions = () => {
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/questions");
+          Swal.fire({
+            title: `Estas listo a iniciar`,
+            background: "rgb(23, 21, 41)",
+            color: "#ffff",
+          });
+          resetGame();
         } else if (result.isDenied) {
           navigate("/");
         }
@@ -115,6 +123,13 @@ export const Questions = () => {
       navigate("/history");
       sendHistoryAward();
     }
+  };
+
+  const resetGame = () => {
+    setQuestion({
+      ...questionState,
+      numberQuestion: 0,
+    });
   };
 
   const exitgame = () => {
@@ -145,12 +160,21 @@ export const Questions = () => {
   };
   return (
     <DivForm>
+      <ContainbtnTotal>
+        <BtnExitGame className="btn" onClick={exitgame}>
+          Salir del juego
+        </BtnExitGame>
+        <label>Ronda {questionState.numberQuestion + 1}</label>
+        <LabelMoney>
+          <ImageMoney
+            src="https://res.cloudinary.com/df90q7vvj/image/upload/v1653187253/sofkaTest/icons8-promedio-2-48-removebg-preview_zgbuam.png"
+            alt="money"
+          />
+          {totalMoney()}
+        </LabelMoney>
+      </ContainbtnTotal>
       <FormStyle className="divform" onSubmit={handleSubmit}>
         <DivBackground>
-          <BtnExitGame className="btn" onClick={exitgame}>
-            Salir del juego
-          </BtnExitGame>
-
           <Form.Group
             className="mb-3 py-1 px-2"
             controlId="control_radio"
