@@ -1,7 +1,24 @@
-div{
-    justify-content: center;
-    align-items: center;
-    text-transform: lowercase;
-    font-weight: bold;
-    color: rgb(35, 78, 35);
+
+
+.correct:hover{
+    background-color: #1db900;
+    border-left: 4px solid #0f6300;
 }
+
+.incorrect:hover{
+    background-color: #df3a2e;
+    border-left: 4px solid #ff3b3b;
+}
+
+/* .DivRadio{
+    background-color: #385272;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-radius: 4px;
+    margin: 1.5%;
+    padding-left: 7%;
+}
+.DivRadio:hover{
+    background: #bbb;
+  } */

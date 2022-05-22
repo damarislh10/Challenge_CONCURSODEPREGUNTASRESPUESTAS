@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { loseGame, prizesCoins } from "../../Helpers/Awards/prizesCoins";
 import { getRamdomly } from "../../Helpers/QuestionProcess/ramdomlyQuestion";
 import { DivBackground } from "../../Styles/StyleHome";
-
+import "../../Styles/prueba.css";
 import {
-  ButtonStyled,
   DivForm,
   DivRadio,
   FormStyle,
@@ -35,7 +34,6 @@ export const Questions = () => {
       d: "",
       correct: "",
     },
-    score: 0,
     answerIncorrect: 0,
     answerSelect: "",
   });
@@ -170,7 +168,13 @@ export const Questions = () => {
               <Titulo>{questionState.question.question}</Titulo>
             </ContainerQuestion>
 
-            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+            <DivRadio
+              className={
+                questionState.question.correct === questionState.answerSelect
+                  ? "correct"
+                  : "incorrect"
+              }
+            >
               <SpanOption> A: </SpanOption>
               <RadioStyled
                 type="radio"
@@ -181,7 +185,13 @@ export const Questions = () => {
                 onChange={onChange}
               />
             </DivRadio>
-            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+            <DivRadio
+              className={
+                questionState.question.correct === questionState.answerSelect
+                  ? "correct"
+                  : "incorrect"
+              }
+            >
               <SpanOption> B: </SpanOption>
               <RadioStyled
                 type="radio"
@@ -192,7 +202,13 @@ export const Questions = () => {
                 onChange={onChange}
               />
             </DivRadio>
-            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+            <DivRadio
+              className={
+                questionState.question.correct === questionState.answerSelect
+                  ? "correct"
+                  : "incorrect"
+              }
+            >
               <SpanOption> C: </SpanOption>
               <RadioStyled
                 type="radio"
@@ -203,7 +219,13 @@ export const Questions = () => {
                 onChange={onChange}
               />
             </DivRadio>
-            <DivRadio style={{ background: alertSuccess ? "green" : "" }}>
+            <DivRadio
+              className={
+                questionState.question.correct === questionState.answerSelect
+                  ? "correct"
+                  : "incorrect"
+              }
+            >
               <SpanOption> D: </SpanOption>
               <RadioStyled
                 type="radio"

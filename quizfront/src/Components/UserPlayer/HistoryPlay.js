@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { requestData } from "../../Helpers/Data/requestData";
 import { urlHistoryPlay } from "../../Helpers/Data/urls";
@@ -14,7 +13,6 @@ import {
 } from "../../Styles/StyleHistoryGame";
 import { DivBackground } from "../../Styles/StyleHome";
 import { DivForm, FormStyle, Titulo } from "../../Styles/StyleQuestion";
-import { BottonPlay } from "../../Styles/StyleUserName";
 
 const HistoryPlay = () => {
   const [history, setHistory] = useState({

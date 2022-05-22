@@ -32,7 +32,6 @@ export const Titulo = styled.h2`
   font-size: 27px;
   text-align: center;
   margin: 0;
-  color: var(--white);
 `;
 
 export const RadioStyled = styled(Form.Check)`
@@ -63,6 +62,9 @@ export const DivRadio = styled.div`
   border-radius: 4px;
   margin: 1.5%;
   padding-left: 7%;
+  /* &:hover {
+    background: #bbb;
+  } */
 `;
 
 export const ContbtnComprobar = styled.div`
@@ -75,8 +77,13 @@ export const SpanOption = styled.span`
 `;
 
 export const BtnExitGame = styled(ButtonForm)`
-  width:20%;
+  width: 20%;
   font-size: 12px;
-  margin: 0 0 2% 2% ;
-  padding:1%;
+  margin: 0 0 2% 2%;
+  padding: 1%;
+`;
+
+export const Correct = styled.div`
+  background-color: #1db900;
+  border-left: 4px solid #0f6300;
 `;

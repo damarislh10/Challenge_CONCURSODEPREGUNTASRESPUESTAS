@@ -13,7 +13,6 @@ export const ImageLight = styled.img`
 `;
 
 export const BottonPlay = styled.button`
-  margin-top: 50%;
   padding: 2% 0;
   width: 50%;
   background: rgb(0, 51, 99);
@@ -26,8 +25,12 @@ export const BottonPlay = styled.button`
   }
 `;
 export const Divcontainerbtn = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+`;
+
+export const ImageLogo = styled.img`
+  width: 300px;
+  margin-top: 40%;
 `;
